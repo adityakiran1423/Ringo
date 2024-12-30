@@ -6,5 +6,4 @@ Parsing a directory to identify, and provide a breakdown of all languages being 
 
 Displays file sizes as well, basically GitHub Linguist but worse
 
-
 ###### sidenote : Please use another language for CLI apps
