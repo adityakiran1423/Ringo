@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+
+options = {}
+OptionParser.new do |p|
+
+    p.banner()
+
+    p.on("-d", "--depth", "depth to which directory should be traversed") do |depth|
+        puts "Depth set to #{depth}"
+        options[:depth] = depth
+        #puts "Depth set to #{depth}"
+    end
+
+    p.on("-s", "--start", "start point for traversal") do |start|
+        puts "Start point set to #{start}"
+    end
+
+    # p.on("-h", "--help", "prints help message") do
+    #     puts "Welcome to ringo"
+    #     puts "Ringo is a tool which provides a breakdown of all languages used in a directory"
+    #     puts "Usage: help_program_name.rb [options]"
+        
+    # end
+
+    # p.require_exact = true
+
+
+end.parse!
+
+if options[:depth].nil?
+    puts 'You must specify a depth to organize'
+    exit 1
+  end
