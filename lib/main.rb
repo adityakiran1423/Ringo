@@ -30,7 +30,7 @@ class Ringo < Thor
             puts "depth entered is #{options[:depth]}" if options[:depth]
             
         rescue ArguementError
-            puts "Oops, sorry. you seem to have an arguement error"
+            puts "Oops, sorry. you seem to have an arg error"
         end
     end
 end
