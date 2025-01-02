@@ -5,24 +5,36 @@ require "optparse"
 options = {depth: '1', start: '.'}
 OptionParser.new do |p|
 
-    p.banner()
+    p.banner = "Welcome to ringo\nA tool which provides a breakdown of all languages used in a directory\n\n"
 
-    p.on("","", "welcome") do
-        puts "Welcome to ringo"
-        puts "Ringo is a tool which provides a breakdown of all languages used in a directory"
-        exit
-    end
+    # p.on("","", "welcome") do
+    #     puts "Welcome to ringo"
+    #     puts "Ringo is a tool which provides a breakdown of all languages used in a directory"
+    #     exit
+    # end
 
-    p.on("-d [depth]", "--depth", "directory depth for traversal, [optional arguement], [default '1']") do |depth|
+    p.on("-d [depth]", "--depth", "Directory depth for traversal, [optional arguement], [default '1']") do |depth|
         options[:depth] = depth
         puts "Depth set to #{depth}"
+        puts "Depth set to #{options[:depth]}"
     end
 
-    p.on("-s [start_point]", "--start", "start point for traversal,     [required arguement], [default '.']") do |start_point|
+    p.on("-s [start_point]", "--start", "Start point for traversal,     [required arguement], [default '.']") do |start_point|
+        options[:start_point] = start_point
         puts "Start point set to #{start_point}"
+        puts "Start point set to #{options[:start_point]}"
+    end
+
+    p.on('-h', '--help', 'Prints this help') do
+        puts p
+        exit
     end
 
     # p.require_exact = true
     
 end.parse!
 
+if options[:start_point].nil? && options[:depth].nil?
+    puts "for start_point #{options[:start_point]} and depth #{options[:depth]}"
+    puts 'defualt values for -d and -s being used'
+end
